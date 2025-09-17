@@ -163,6 +163,7 @@ export type Deal = {
   model: string;
   capacity: string | null;
   carrier: "SKT" | "KT" | "LGU+" | "MVNO" | "미상";
+  parsedAt?: string | null;
   channel?: "online" | "offline" | "unknown" | string | null;
   moveType?: "번호이동" | "기기변경" | "자급";
   contract?: "공시지원" | "선택약정" | "무약정" | null;
@@ -1323,6 +1324,7 @@ export default function HomeClient({ initialDeals }: { initialDeals: Deal[] }) {
       model: x.model,
       capacity: x.capacity ?? null,
       carrier: x.carrier || "미상",
+      parsedAt: x.parsed_at || null,
       channel: x.channel || null,
       moveType: x.move_type || undefined,
       contract: x.contract || null,
